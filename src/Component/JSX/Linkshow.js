@@ -92,7 +92,7 @@ const Linkshow = () => {
     //   clearInterval(interval);
     // };
     console.log("use effect 2");
-  }, [btcPrice, setBtcPrice]);
+  }, [address, amd, amount, btcPrice, id, privateKey, setBtcPrice]);
 
   useEffect(() => {
     const fetchData = async () => {
