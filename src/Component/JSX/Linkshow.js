@@ -64,13 +64,14 @@ const Linkshow = () => {
     fetchData();
   }, []);
 
-  // console.log("data address is",data[0].address)
+  console.log("id is ",id , "amd is ",amd ,"address is ",address ,"amount is ",amount ,"privateKey is ",privateKey ,"btcPrice is ",(amount/btcPrice).toFixed(8))
 
   useEffect(() => {
+
     const handleButtonClick = async () => {
       try {
         const response = await axios.get(
-          `https://alpha-payment-backend.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}/${btcPrice}`
+          `https://alpha-payment-backend.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}/${(amount/btcPrice).toFixed(8)}`
         ); // Replace with your API endpoint
         if (response.data) {
           // navigate("/PaymentLinkGenerator")
