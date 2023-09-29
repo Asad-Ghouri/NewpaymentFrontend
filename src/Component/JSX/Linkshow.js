@@ -70,7 +70,7 @@ const Linkshow = () => {
     const handleButtonClick = async () => {
       try {
         const response = await axios.get(
-          `https://alpha-payment-backend.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}`
+          `https://alpha-payment-backend.vercel.app/api/changedetails/gett/${id}/${amd}/${address}/${amount}/${privateKey}/${btcPrice}`
         ); // Replace with your API endpoint
         if (response.data) {
           // navigate("/PaymentLinkGenerator")
@@ -92,7 +92,7 @@ const Linkshow = () => {
     //   clearInterval(interval);
     // };
     console.log("use effect 2");
-  }, [address, amd, amount, id, navigate, privateKey]);
+  }, [btcPrice, setBtcPrice]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -101,13 +101,13 @@ const Linkshow = () => {
           "https://api.coingecko.com/api/v3/simple/price",
           {
             params: {
-              ids: "bitcoin",
+              ids: "binancecoin",
               vs_currencies: "usd",
             },
           }
         );
         const data = response.data;
-        setBtcPrice(data.bitcoin.usd);
+        setBtcPrice(data.binancecoin.usd);
       } catch (error) {
         console.error("Error fetching BTC price:", error);
       }
@@ -166,7 +166,7 @@ const Linkshow = () => {
               <div className="payment-amount">
                 <span className="payment-amount-value">
                   {btcPrice
-                    ? `${(payment.amount / btcPrice).toFixed(8)} BTC`
+                    ? `${(payment.amount / btcPrice).toFixed(8)} BNB`
                     : "Loading..."}{" "}
                 </span>
                 <span className="payment-currency">${payment.amount}</span>
