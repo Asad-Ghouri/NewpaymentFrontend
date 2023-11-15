@@ -10,11 +10,9 @@ import { faCopy } from "@fortawesome/free-regular-svg-icons";
 const Linkshow = () => {
   const navigate = useNavigate();
   const [data, setdata] = useState([]);
-
-
   
   // const addresss = useAddress();
-
+//hellow worlds
   const [btcPrice, setBtcPrice] = useState(null);
 
   // const sdk = useSDK();
